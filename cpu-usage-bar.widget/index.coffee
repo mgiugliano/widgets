@@ -7,7 +7,7 @@ so if you have 8 cores it can get up to 800%
 
 command: "ps aux  | awk 'BEGIN { sum = 0 }  { sum += $3 }; END { print sum }' && sysctl hw.ncpu | awk '{print $2}'"
 
-refreshFrequency: 60000
+refreshFrequency: 30000
 # was table, width: 100%
 # was after, content: 'cpu'
 style: """
