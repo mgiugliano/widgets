@@ -22,7 +22,7 @@ format = (->
 command: "date +\"#{format}\""
 
 # the refresh frequency in milliseconds
-refreshFrequency: 30000
+refreshFrequency: 60000
 
 # for update function
 dateOptions: dateOptions

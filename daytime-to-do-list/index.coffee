@@ -21,12 +21,13 @@ todolistfile  = 'daytime-to-do-list/todolist.txt'
 
 cmd1           = 'daytime-to-do-list/pReminders_todo'
 cmd2           = 'daytime-to-do-list/pReminders_done'
+cmd3		   = 'daytime-to-do-list/quitReminders'
 # Short cut ot invoke my AppleScript that extracts Reminders from a List
 
 #command:"H=$(date +%H) && if (( 10#$H < #{MaxDaytimeHour})); then >#{todolistfile} && #{cmd1} #{RemindersList} >>#{todolistfile} && #{cmd2} #{RemindersList} >>#{todolistfile}; else >#{todolistfile}; fi && cat #{todolistfile} | awk 'BEGIN {print \"<ol>\"} /^[-]/ {print \"<li>\"substr($0,2)\"</li>\"} /^[+]/ {print \"<li class=\\\"completed\\\">\"substr($0,2)\"</li>\"} END {print \"</ol>\"}'"
-command:"H=$(date +%H) && if (( #{MinDaytimeHour} <= 10#$H && 10#$H < #{MaxDaytimeHour} )); then >#{todolistfile} && #{cmd1} #{RemindersList} >>#{todolistfile} && #{cmd2} #{RemindersList} >>#{todolistfile}; else >#{todolistfile}; fi && cat #{todolistfile} | awk 'BEGIN {print \"<ol>\"} /^[-]/ {print \"<li>\"substr($0,2)\"</li>\"} /^[+]/ {print \"<li class=\\\"completed\\\">\"substr($0,2)\"</li>\"} END {print \"</ol>\"}'"
+command:"H=$(date +%H) && if (( #{MinDaytimeHour} <= 10#$H && 10#$H < #{MaxDaytimeHour} )); then >#{todolistfile} && #{cmd1} #{RemindersList} >>#{todolistfile} && #{cmd2} #{RemindersList} >>#{todolistfile}; else >#{todolistfile}; fi && cat #{todolistfile} | awk 'BEGIN {print \"<ol>\"} /^[-]/ {print \"<li>\"substr($0,2)\"</li>\"} /^[+]/ {print \"<li class=\\\"completed\\\">\"substr($0,2)\"</li>\"} END {print \"</ol>\"}' && #{cmd3}"
 
-refreshFrequency: '60s'
+refreshFrequency: '300s'
 
 style: """
   top: 150px
